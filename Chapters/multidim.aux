@@ -1,0 +1,242 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {chapter}{\numberline {4}Multidimensionality analysis}{19}{chapter.38}\protected@file@percent }
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:multidim}{{4}{19}{Multidimensionality analysis}{chapter.38}{}}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Non-Dimensional Item Response Pattern}}{20}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:weak}{{4.1}{20}{Non-Dimensional Item Response Pattern}{figure.caption.39}{}}
+\enotez@note {5}{5}{0}{4.0}{0}{a}{As a little side note; the true score approach of CTT relates closely to exploratory factor analysis. \textcite {Mair2018}, for example, interlinks both approaches in equation 1.1 and 2.2.}
+\enotez@note {6}{6}{0}{4.1}{1}{a}{There are several differences between PCA and FA. For instance, PCA tries to minimize the loss of compression when reproducing information in the correlation matrix ($R$). But the question is if researchers should really expect the variables to capture all the information in the correlation matrix. Or, to put it another way, if the variables can fully explain the variation in the data. In the social sciences, it seems more realistic to model only the *common* features of a sample. That’s where common factor analysis (FA) comes in. FA tries to explain the \textit {common} parts of the correlation matrix; which means (1) covariation (i.\,e., off-diagonals) plus (2) the so-called \textsc {communalities}. The communalities are the common portion of the variance in the on-diagonals. What further distinguished the common factor model (CFM) from PCA is the leftover, called “uniqueness”. The uniqueness holds unexplainable bits, things like measurement error and item-specific variation. These are usually suppressed in standard PCA models. Against the background of the complex measurement (i.e., being doomed to measure with error) CFM’s advantages over PCA seem convincing. One major reason for the confusion between PCA and FA arises from PCM (i.e., principal component method) or PFM (i.\,e., principal factor method). The method will be part of later sections. For now, simply memorize, there is a difference between both approaches (i.\,e., PCA and FA) and a particular extraction method within the approach (i.\,e., PCM and PFA).}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Between-Within-Group Pattern}}{21}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:mixed}{{4.2}{21}{Between-Within-Group Pattern}{figure.caption.42}{}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {4.1}Factor analysis}{21}{section.44}\protected@file@percent }
+\enotez@note {7}{7}{0}{4.1}{1}{a}{\textcite {Brown2015} gives a comprehensive and applied introduction in his book.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Researcher’s perspective}{22}{subsection.47}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Robot’s perspective}{23}{subsection.49}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Three major problems}{25}{subsection.53}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Communality problem}{26}{section*.54}\protected@file@percent }
+\enotez@note {8}{8}{0}{4.1}{1}{a}{$\Lambda \Phi \Lambda ^{t}$ is a common way to define the communalities \parencite {Yong2013}. Literally, the expression reads as \enquote {(sum of the) squared loadings}. The definition follows from CFM under the assumption of independence Assuming independent factor forces their correlation to be zero: $\forall \phi _{i=1,\dots ,m} \in \Phi : \phi _{i \neq j} \Rightarrow \phi _{i,j} = 0$ Accordingly, $\Phi $ becomes the identity matrix: $I$. The identity matrix contains $1$’s in the on-diagonals and $0$’s in the off-diagonals. It is the neutral element of matrix multiplication. As a consequence, any matrix $M$ multiplied with $I$ is $M\times I = M$. Thus, if $\Psi = I$, the right-hand side of the fundamental equation $\Lambda \Phi \Lambda ^{t}$ renders to $\Lambda \Lambda ^{t}$}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Robot’s perspective}{27}{section*.55}\protected@file@percent }
+\enotez@note {9}{9}{0}{4.1}{1}{a}{The principal component method (PCM) is the reason for major confusion about FA and PCA. Commercial software like SPSS choose the classic their default extraction method in EFA. As a consequence, singular value or eigenvalue decomposition and factor extraction became intertwined. But they shouldn’t go hand in hand. Stata and R, for instance, take the distinction into account. Stata, separate models within tabs. Likewise, R includes them in different packages. The next sections are devoted to the problem of PCM in social sciences. In recourse, it may become clear why SPSS chose a bad default.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Researcher’s perspective}{28}{section*.57}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Solutions}{28}{section*.58}\protected@file@percent }
+\enotez@note {10}{10}{0}{4.1}{1}{a}{Experimenting with the communality values allows understanding the differences and similarities between PAFA and PCA. To get a better intuition of their relation, \textcite {Revelle2021} nudged to play the \textsc {communality game}: In PAFA, the communalities can be determined. If the researcher iterative increases the value to one, PAFA and PCA yield approximately equal results. If the communalities equal ${1}$, PCA can be said to be identical to PAFA. Why? First, on one hand decompose the underlying correlation matrix with an \textsc {eigenvalue decomposition} (or the input matrix with a singular-value decomposition). So they are equal regarding that fact. But on the other hand they use different variants of correlation matrices. Principal component analysis applies the eigenvalue decomposition to the whole correlation matrix ${R}$, whereas PAFA uses the reduced matrix. In simplified terms, they relate to each other as follows: $diag(R) = \mathbf {1}$; $diag(R^*) < \mathbf {1}$. Accordingly, if the reduced matrix iterates its diagonal towards $1$, both resemble one another: $diag(R^*) \rightarrow 1 \Rightarrow R^{*} \approx {R}$. Lastly, as already mentioned, both use an EVD to decompose their matrices. Applying the EVD to an arbitrary correlation matrix ($R$) yields: $R = U \Lambda U^t$ \parencite {Mair2018}. $U$ is a left singular matrix, $U^t$ the transposed right-singular matrix and $\Lambda $ the factor loading matrix. A principal component $C$ can now be defined as product of the singular matrix and the root of the eigenvectors ($\sqrt \lambda $): $C = U\sqrt {\lambda }$ \parencite {Revelle2021}. This simplifies $R$ to the product of two component matrices: $R=CC^t$. Accordingly, for the reduced matrix: $R^*=FF^t$. To summarize, if the correlation matrices resemble one another, so do their results: $diag(R^*) \rightarrow 1 \Rightarrow FF^t \approx CC^t$. This is in line with the findings of \textcite {Harris1964}, for example, who showed that PCA and PAFA provide almost identical results under the principal extraction method. In conclusion, if the correlation matrix resembles one another, the results are equal. If they do not, the results differ \parencite [p. 129]{Gorsuch2015}.}
+\enotez@note {11}{11}{0}{4.1}{1}{a}{Technically speaking, the procedure provides a solution that successively maximizes the (squared) factor-item correlations: $\Lambda \Lambda ^{t}$ As a result, the between factor correlations are literally thrown out. Why? Think of the syringes. Maximizing the information density within each factor minimizes the information shared between factors. All soak water from a common source of information. One must decide how to distribute the water across syringes (i.\,e., information across factors). PCM’s choice is, once more, maximizing information reconnaissance. Ultimately, the robots maximize the sum of squares of the factor structure and thus the information kept from the residual matrix after the first factor has been extracted \parencite [p. 101]{Gorsuch2015}}
+\enotez@note {12}{12}{0}{4.1}{1}{a}{Conceptually, factor independence can be understood following fundamental theorem: $P=\Lambda \Lambda ^t + \Psi $. Again, assuming factor independence, the correlation between factors is 0. The matrix of between factor correlations becomes the identity matrix: $\Phi = I$. Under the assumption, the model equation simplifies to $P = \Lambda \Lambda ^t + \Psi $. Researchers can easily get rid of the uniqueness, too. Expecting the variables to pick up all the information in the correlation matrix, the uniqueness drops out and $P$ renders to $R$. Why? Because the previous assumption necessitates to get all the information in the correlation matrix -- not just the common ones. Accordingly, $P$ simplifies twice: $R = \Lambda \Lambda ^t$. At any case, the explanation suffice understanding the process. However, the description misses a concise argument. Independence actually results from EVD and comes in the form of $U$: $R = U \Lambda U^t$. Remember, $U$ is a singular matrix. The singular matrix comprises orthogonal vectors, which are independent of each other. In sum, independence results from how the information are decomposed. It furthermore expresses in the result, as it was shown with the syringes.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subparagraph}{Bad defaults}{29}{section*.60}\protected@file@percent }
+\enotez@note {13}{13}{0}{4.1}{1}{a}{Technically, the ML problem is solved by generalizing the ordinary least squares approach \parencite {Joreskog1978}. In fact, the robot searches for a parameter vector $\theta $ so that $\mathrm {S}(\theta ) \rightarrow \min \frac {1}{2} tr(SP^{-1} - I)^2$ ($S$: sample correlation matrix). Minimizing the expression can be shown to maximizing the likelihood of the solution given the data \parencite {Revelle2021}. For this reason, maximum likelihood estimation yields the most plausible values ($\theta $) to reproduce the common parts of the structure in the correlation matrix.}
+\enotez@note {14}{14}{0}{4.1}{1}{a}{Note that by varying different estimation approaches, one does usually iterate through various error assumptions \parencite {Joreskog1978}.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subparagraph}{Decent alternatives}{30}{section*.64}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Research recommendations}{30}{section*.66}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Additionals}{31}{section*.68}\protected@file@percent }
+\enotez@note {15}{15}{0}{4.1}{1}{a}{\textcite {Thurstone1935, Thurstone1947, Thurstone1969} developed a set of principles to guide the rearrangement of the loading matrix ($\hat {\Lambda }$). Thinking in zeros and ones, one aims to redistribute the zeros and ones in the loading matrix to achieve an unequivocal loading pattern. At best, every item loads only on a single factor. If this is true for every item, the outcome has literally a simple structure. Each item is clearly attributable to (i.e., loads highly on) a single factor: $\exists \xi _i, \xi _j:\lambda _{a_i}, \lambda _{b_i}, \lambda _{c_i} \gg \lambda _{a_j}, \lambda _{b_j}, \lambda _{c_j}$. For \textcite {Carroll1953, Tucker1955, Jennrich1966}, and others, this must-have been one of those statistical fairytales. They all criticize that a \enquote {Simple Structure} will be hardly ever reached. Nonetheless, nowadays there are various implementations to come close to the ideal. Some of them will be discussed afterward.].This is at the heart of the rotation problem. The key question is how to transfer the robot’s intermediate to something simple -- which means more interpretable ($\hat \Lambda _r$).}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Rotation problem}{32}{section*.69}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Researcher’s perspective}{32}{section*.71}\protected@file@percent }
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Factor Coordinate System}}{33}{figure.caption.72}\protected@file@percent }
+\newlabel{fig:facord}{{4.3}{33}{Factor Coordinate System}{figure.caption.72}{}}
+\enotez@note {16}{16}{0}{4.1}{1}{a}{Once introduced, orthogonality maintains in a system. This holds especially true, modeling the information with the eponymous rotation. Starting (1) from the fundamental theorem, using (2) the transformation equation and (3) the orthogonality constraint, one can easily show how orthogonality preserves. Accordingly, the derivation is called the \enquote {law of conservation of orthogonality}: \begin {gather*} P_r = \Lambda _r\Lambda _r^t + \Psi \\ P_r = \Lambda T (\Lambda T)^t + \Psi \\ P_r = \Lambda \underbrace {T T^t}_{I} \Lambda ^t + \Psi \\ P_r = \Lambda \Lambda ^t + \Psi \\ P_r = P \end {gather*} }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Robot’s perspective}{34}{section*.73}\protected@file@percent }
+\enotez@note {17}{17}{0}{4.1}{1}{a}{To shed light on this, let\u 2019s look at the pattern-structure-matrix distinction. In research literature, the terms \textsc {structure matrix} and \textsc {pattern matrix} are omnipresent. To build an intuition, the structure encompasses all common information in the correlation matrix. (1) The information between items and factors, as well as (2) the information between factors. The decomposition is used in the fundamental equation ($P = \Lambda \Phi \Lambda ^{t} + \Psi $). If the factors do not share any additional information, their correlation is zero ($\forall \phi _{i,j | i \neq j} = 0$) and $\Phi $ becomes the identity matrix $I$. Here, the structure can be reproduced using only factor-item information. So in the end, the structure (${S}$) is reproducible as a function of the factor-item information (${\Lambda }$) and factor-factor information ($\Phi $). Algebraically, this can be written as: $S = \Lambda \Phi $. So rotating orthogonal sets of the correlation between factors, the off-diagonals become zero, $\Phi $ equals $I$, and $S$ reduces to $\Lambda $. Structure matrix and pattern matrix are identical. The key question in the following will be how realistic the assumption of independence really is in applied social science research.}
+\enotez@note {18}{18}{0}{4.1}{1}{a}{A technique which was always part of exploratory analyzes since the prior work of Thurstone in the 1940s is visual rotation. The problem with it is that selecting factor radians ($\theta $) imposes some kind of arbitrariness in the rotation procedure \parencite {Carroll1953}. Researcher are often accused to miss a concise \enquote {objective} argument on which to evaluate the position of the axes. Hence, researchers usually turn towards analytic criteria. What often remains unnoticed is, visual rotation allows a pretty good approximation of a simple structure \textcite [p. 202]{Gorsuch2015}. However, nowadays, the use of analytic criteria predominates the social sciences. Most of them are oriented towards providing a mathematical gateway to a simple structure. Thus, today’s focus is on how to minimize a matching criterion}
+\enotez@note {19}{19}{0}{4.1}{1}{a}{The original paper from Saunders \enquote {Transvarimax: Some properties of the ratiomax and equamax criteria for blind orthogonal rotation} is not accessible. Drawing on \parencite {Gorsuch2015}, the proposed method was documented in a paper delivered at the American Psychological Association meeting in 1962. Additional information about equamax can be found in \parencite {Kaiser1974a}.}
+\enotez@note {20}{20}{0}{4.1}{1}{a}{Technically speaking, maximizing the sum of squared loadings ($\hat {\Lambda }\hat {\Lambda }^t$) on each factor ($\xi $) actually leads to a transformation matrix (${T}$), which multiplies the columns of the matrix of factor loadings ($\hat {\Lambda }$) by radians ($\theta $) \parencite {Revelle2021}. Thereby, they rotate (counterclockwise) by $\theta $.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Solutions}{35}{section*.77}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subparagraph}{Bad defaults}{35}{section*.79}\protected@file@percent }
+\enotez@note {21}{21}{0}{4.1}{1}{a}{Technically speaking, the transformation (${T}$) should distribute the communality of each item across the least number of factors ($\xi $). This generates the easiest loading picture possible. Why? Because each factor-loading $\hat {\lambda }$ is either zero or as far from zero as possible \parencite {Lorenzo-Seva2003}.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subparagraph}{Decent alternatives}{36}{section*.82}\protected@file@percent }
+\enotez@note {22}{22}{0}{4.1}{1}{a}{Conceptually, the argument of \textcite {Lorenzo-Seva2003} is that other indexes partially miss the target (i.\,e., the simplest result possible). They deal with the loading merely indirectly. Bentler’s index, for example, builds upon the columns of the matrix of factor loadings ($\Lambda $). The loading simplicity, on the other hand, puts the focus on the values of the loadings directly.}
+\enotez@note {23}{23}{0}{4.1}{1}{a}{The workhorse in \textcite {Kiers1994} algorithm is $\sigma (T,\Lambda _r) = || \Lambda T - \Lambda _r ||^2$, with pattern matrix ${\Lambda }$, transformation ${T}$, and target ${\Lambda }_r$. The crux is to find the so-called \textsc {best simple target}, which means to solve for a transformation (${T}$) that allows rotating the pattern matrix ${\Lambda }$, such that the rotated matrix (${\Lambda }_r$) has a given number ($p$) of zero entries.}
+\enotez@note {24}{24}{0}{4.1}{1}{a}{\textcite {Gorsuch2015} prompts towards the rare case of \textcite {Guilford1981}. Replacing orthogonal with oblique transformation, he started reanalyzing his past research, finally resolving the assumption of independence.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Research recommendations}{37}{section*.86}\protected@file@percent }
+\enotez@note {25}{25}{0}{4.1}{1}{a}{A four-step procedure of fitting, evaluating, understanding, and communicating deviations with the results is often part of so-called \textsc {sensitivity analyzes} \parencite []{Saltelli2002}. Sensitivity analysis plays a special role if the object under investigation is of social or political significance.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Additionals}{38}{section*.89}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{Number of factor problem}{39}{section*.90}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Researcher’s perspective}{40}{section*.91}\protected@file@percent }
+\enotez@note {26}{26}{0}{4.1}{1}{a}{In recent developments, like \textsc {Bayesian exploratory factor analysis} (BEFA; \cite {Conti2014}, the algorithm proposes a set of solutions rated according to their plausibility. This means BEFA rates the different number of factors according to their posterior probabilities. Regarding MLFA, the result also includes the most plausible values given the constraint. But constraints are furthermore data and prior knowledge.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Robot’s perspective}{41}{section*.92}\protected@file@percent }
+\enotez@note {27}{27}{0}{4.1}{1}{a}{\textcite {Mair2018} notes that the K1-solution is based on an eigenvalue decomposition of the correlation matrix (${R}$). Correspondingly, the Kaiser criterion provides a solution based on the principal component (PC) model. As a result, it iteratively extracts \textit {principal components} which explains successively less variation in the data -- until the eigenvalue of a standardized variable is reached. For that reason, \textcite {Timmerman2017} subsume K1 under the PCA-based criteria.}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Solutions}{42}{section*.96}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subparagraph}{Bad defaults}{42}{section*.97}\protected@file@percent }
+\enotez@note {28}{28}{0}{4.1}{1}{a}{Because of its flaws, nowadays, there is almost no research effort put into the Kaiser criterion. Reviewing the literature, there are only improved versions of the classical criterion, like the empirical Kaiser criterion \parencite []{Braeken2017}, under review \parencite [see][]{Auerswald2019}.}
+\enotez@note {29}{29}{0}{4.1}{1}{a}{The argument is derivable, following the fundamental equation: $P = \Lambda \Phi \Lambda ^{t} + \Psi $. If a model ($P’$) assumes factor-independence ($\Phi = I$) and P’ simplifies to the independent version of the fundamental equation: $P’ = \Lambda I \Lambda ^{t} \Psi $. In that sense, P’ equals P the more ${\Phi }$ equals ${I}$, which means, the more factor independence is reasonable. Formally, this can be written as: $P \approx P’ | \Phi \rightarrow 0$. The argument is, since, the number of factors ($p$) determines the form of the model (${P}$) deviations between the models ($P \not \approx P’$) should imply deviation in the number of factors to retain ($p \not \approx p’$). Formally: $\Phi \not \approx I \Rightarrow P \not \approx P’ \Rightarrow p \not \approx p’$.}
+\enotez@note {30}{30}{0}{4.1}{1}{a}{\textcite {Timmerman2017} subsume the scree test under the PCA-based approaches, because it bases on eigenvalue decomposition of the correlation matrix (${R}$), too. This means, the scree test, as well as K1, provide their solutions based on the principal component model. More precisely, the model iteratively extracts components that explain successively less and less variation in the data. When there is no unexplained bit of variation left, all eigenvalues ($\lambda $) are sorted in decreasing order and plotted along with an index ($I = 1, \dots , m$). Note that, because of the decomposition strategy, there are as many eigenvalues ($\lambda _{i = 1, \dots , m}$) as there are items in the data set.}
+\enotez@note {31}{31}{0}{4.1}{1}{a}{So far, the argument why PCA-based and CFA-based model differ regarding the number of factor to retain based upon factor independence. But as shown, the differences exceed the problem of independence. Both use (1) different models and rely (2) on different sources of information. \textcite {Zwick1986} did already prompt towards differences between the two strategies in terms of the implied number of factors to retain. They conclude, PCA will propose far more components than CFM do factors. The result should not surprise. Once more, PCA attempts to explain all the information in the correlation matrix. For this reason alone, there is more information to explain, logically demanding a larger number of factors.}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Scree plot}}{44}{figure.caption.104}\protected@file@percent }
+\newlabel{fig:scree}{{4.4}{44}{Scree plot}{figure.caption.104}{}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subparagraph}{Decent alternatives}{45}{section*.106}\protected@file@percent }
+\enotez@note {32}{32}{0}{4.1}{1}{a}{This assumption has mathematical roots. \parencite {Timmerman2017} pointed out that assuming the ordered categorical indicators to be the product of underlying normally distributed variables turns the polychoric correlation into an MLE for the Pearson correlation between latent variables.}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Parallel Analysis}}{46}{figure.caption.107}\protected@file@percent }
+\newlabel{fig:PA}{{4.5}{46}{Parallel Analysis}{figure.caption.107}{}}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Hull Method}}{47}{figure.caption.110}\protected@file@percent }
+\newlabel{fig:hull}{{4.6}{47}{Hull Method}{figure.caption.110}{}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Research Recommendations}{49}{section*.112}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {paragraph}{Additionals}{50}{section*.113}\protected@file@percent }
+\enotez@note {33}{33}{0}{4.2}{2}{a}{More precisely, the regression approach is a two-step procedure \parencite []{Mair2018}: (1) combine the correlation matrix ($R$) and loading matrix ($\hat {\Lambda }$) to estimate weights ($\hat {B}$): $\hat {B} = R^{-1} \hat {\Lambda }$ (2) Use the data ($X$), standardize them ($Z$) and push them out through the model using the score coefficient matrix ($\hat {B}$) to estimate the factor scores ($\hat {F}$): $\hat {F} = Z\hat {B}$}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {4.2}Factor scores (Measurement)}{51}{section.116}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {4.3}Example code}{53}{section.120}\protected@file@percent }
+\@setckpt{Chapters/multidim}{
+\setcounter{page}{55}
+\setcounter{equation}{12}
+\setcounter{enumi}{0}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{4}
+\setcounter{section}{3}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{6}
+\setcounter{table}{0}
+\setcounter{LT@tables}{2}
+\setcounter{LT@chunks}{2}
+\setcounter{caption@flags}{0}
+\setcounter{continuedfloat}{0}
+\setcounter{tabx@nest}{0}
+\setcounter{listtotal}{0}
+\setcounter{listcount}{0}
+\setcounter{liststart}{0}
+\setcounter{liststop}{0}
+\setcounter{citecount}{0}
+\setcounter{citetotal}{0}
+\setcounter{multicitecount}{0}
+\setcounter{multicitetotal}{0}
+\setcounter{instcount}{346}
+\setcounter{maxnames}{2}
+\setcounter{minnames}{1}
+\setcounter{maxitems}{999}
+\setcounter{minitems}{1}
+\setcounter{citecounter}{0}
+\setcounter{maxcitecounter}{0}
+\setcounter{savedcitecounter}{0}
+\setcounter{uniquelist}{0}
+\setcounter{uniquename}{0}
+\setcounter{refsection}{0}
+\setcounter{refsegment}{0}
+\setcounter{maxextratitle}{0}
+\setcounter{maxextratitleyear}{0}
+\setcounter{maxextraname}{3}
+\setcounter{maxextradate}{2}
+\setcounter{maxextraalpha}{0}
+\setcounter{abbrvpenalty}{50}
+\setcounter{highnamepenalty}{50}
+\setcounter{lownamepenalty}{25}
+\setcounter{maxparens}{3}
+\setcounter{parenlevel}{0}
+\setcounter{mincomprange}{10}
+\setcounter{maxcomprange}{100000}
+\setcounter{mincompwidth}{1}
+\setcounter{afterword}{0}
+\setcounter{savedafterword}{0}
+\setcounter{annotator}{0}
+\setcounter{savedannotator}{0}
+\setcounter{author}{0}
+\setcounter{savedauthor}{0}
+\setcounter{bookauthor}{0}
+\setcounter{savedbookauthor}{0}
+\setcounter{commentator}{0}
+\setcounter{savedcommentator}{0}
+\setcounter{editor}{0}
+\setcounter{savededitor}{0}
+\setcounter{editora}{0}
+\setcounter{savededitora}{0}
+\setcounter{editorb}{0}
+\setcounter{savededitorb}{0}
+\setcounter{editorc}{0}
+\setcounter{savededitorc}{0}
+\setcounter{foreword}{0}
+\setcounter{savedforeword}{0}
+\setcounter{holder}{0}
+\setcounter{savedholder}{0}
+\setcounter{introduction}{0}
+\setcounter{savedintroduction}{0}
+\setcounter{namea}{0}
+\setcounter{savednamea}{0}
+\setcounter{nameb}{0}
+\setcounter{savednameb}{0}
+\setcounter{namec}{0}
+\setcounter{savednamec}{0}
+\setcounter{translator}{0}
+\setcounter{savedtranslator}{0}
+\setcounter{shortauthor}{0}
+\setcounter{savedshortauthor}{0}
+\setcounter{shorteditor}{0}
+\setcounter{savedshorteditor}{0}
+\setcounter{groupauthor}{0}
+\setcounter{savedgroupauthor}{0}
+\setcounter{narrator}{0}
+\setcounter{savednarrator}{0}
+\setcounter{execproducer}{0}
+\setcounter{savedexecproducer}{0}
+\setcounter{execdirector}{0}
+\setcounter{savedexecdirector}{0}
+\setcounter{with}{0}
+\setcounter{savedwith}{0}
+\setcounter{labelname}{0}
+\setcounter{savedlabelname}{0}
+\setcounter{institution}{0}
+\setcounter{savedinstitution}{0}
+\setcounter{lista}{0}
+\setcounter{savedlista}{0}
+\setcounter{listb}{0}
+\setcounter{savedlistb}{0}
+\setcounter{listc}{0}
+\setcounter{savedlistc}{0}
+\setcounter{listd}{0}
+\setcounter{savedlistd}{0}
+\setcounter{liste}{0}
+\setcounter{savedliste}{0}
+\setcounter{listf}{0}
+\setcounter{savedlistf}{0}
+\setcounter{location}{0}
+\setcounter{savedlocation}{0}
+\setcounter{organization}{0}
+\setcounter{savedorganization}{0}
+\setcounter{origlocation}{0}
+\setcounter{savedoriglocation}{0}
+\setcounter{origpublisher}{0}
+\setcounter{savedorigpublisher}{0}
+\setcounter{publisher}{0}
+\setcounter{savedpublisher}{0}
+\setcounter{language}{0}
+\setcounter{savedlanguage}{0}
+\setcounter{origlanguage}{0}
+\setcounter{savedoriglanguage}{0}
+\setcounter{citation}{0}
+\setcounter{savedcitation}{0}
+\setcounter{pageref}{0}
+\setcounter{savedpageref}{0}
+\setcounter{textcitecount}{1}
+\setcounter{textcitetotal}{1}
+\setcounter{textcitemaxnames}{0}
+\setcounter{biburlbigbreakpenalty}{100}
+\setcounter{biburlbreakpenalty}{200}
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{200}
+\setcounter{biburllcpenalty}{100}
+\setcounter{smartand}{1}
+\setcounter{bbx:relatedcount}{0}
+\setcounter{bbx:relatedtotal}{0}
+\setcounter{parentequation}{0}
+\setcounter{endnote}{33}
+\setcounter{@index}{0}
+\setcounter{@plane}{0}
+\setcounter{@row}{0}
+\setcounter{@col}{0}
+\setcounter{use@args}{0}
+\setcounter{@record}{0}
+\setcounter{arg@index}{0}
+\setcounter{break@count}{0}
+\setcounter{index@count}{0}
+\setcounter{loop@count}{0}
+\setcounter{VerbboxLineNo}{4}
+\setcounter{Item}{0}
+\setcounter{Hfootnote}{0}
+\setcounter{bookmark@seq@number}{39}
+\setcounter{section@level}{1}
+}

@@ -1,0 +1,159 @@
+\chapter{Unidimensionality Analysis} \label{chap:unidim} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+A set of indicators is \textsc{unidimensional} if exactly one latent dimension causes its structure. But how does the dimension ($\zeta$) leave its fingerprint on the correlation matrix ($R$)? Well, it reveals itself through consistently high inter-item correlations ($\rho$) among the ($m$) indicators: 
+\begin{equation}
+\forall X_{i = 1, \dots, m } \in R: \rho_{X_i,X_j} \wedge \rho_{X_k,X_l} \gg 0
+\end{equation}
+
+\begin{figure}[htb]
+\includegraphics[width=\textwidth]{Figures/strong-1.png}
+\caption[Unidimensional Item Response Pattern]{Unidimensional Item Response Pattern -- 12 simulated variables with item-factor correlations $\lambda_{i=1,\dots,12}$ = 0.7}.
+\label{fig:strong}
+\end{figure}
+
+Recall, all indicators have joint attributes due to the common generative process. Since there is only a single latent dimension affecting the observed response patterns, the indicators only share common features, which manifest in the strength of their inter-item correlations. Likewise, unidimensionality is an attribute of a scale (i.\,e. a collection of observable indicators). Combing the two insights leads straight to the definition of classical test theory\endnote{Since ELS completely builds upon CTT, focus in UDA is fully on CTT. In applied research, there is a big ideological debate on whether to use it \parencite{Borsboom2005, Hattie1985}. But concerning its performance, meanwhile, a big empirical body of evidence developed, showing that the results are often quite comparable \parencite{Erguven2014, Fan1998, Hwang2002, Kohli2015, MacDonald2002, Xitao1998}. However, most studies miss giving convincing arguments why this is the case. In a more recent study, \textcite{Kohli2015} showed that only modern extensions, subsumed under the underlying variable approach (UVA), are comparable with modern item response theory models. These UVA-extended CTT models are most performant. Under the so-called UVA assumption (i.\,e., underlying normally distributed variables) polychoric correlations will be outlined in chapter 4.} (CTT; \cite{Lord1968}), which defines \textsc{scales} as unidimensional sets of items \parencite{DeVellis2006}.
+
+Besides, CTT can help to tackle further issues in connection to measure complex social phenomena. As it was shown, accessing collective dispositions like \enquote{honor} is not an easy undertaking. Obstacles like the intricate problem in the social sciences and the peculiarities of the OUI stand in the researcher's way, hampering his or her possibility to gain easy access. Ultimately, it is not exaggerated to say; \textit{measurement of complex social phenomenon somehow dooms to measure with error}. A way to get rid of the error is to quantify and control for it. A tool for this purpose is CTT. Hereafter, reliability analysis following CTT is presented as one way to quantify the error of investigation and to select appropriate indicators to pin down participants' values on the underlying latent dimension.
+
+\section{Reliability analysis}
+
+The burden of complex social science measurement in terms of CTT is to access a participant's true score ($T$) on the latent dimension from error-prone measurement ($X$). In a nutshell, CTT urges repeating measurement to raise confidence in the assessment. Why? Because every attempt to measure the actual score ($T$) of a latent dimension ($\zeta$) is a conjecture of the score researchers actually observe ($X$) plus some error ($\epsilon$): 
+\begin{equation}
+\zeta: T = X+\epsilon
+\end{equation}
+The increase in confidence then arises from averaging across repeated (error-prone) measurement. When adding small fluctuations on average they dampen one another \parencite[p. 73]{McElreath2020}. As the error component is presumably a composition of random fluctuations (e.\,g., minor shortcomings when answering the questionnaire, like misreading an item), they offset each other. So we can expect the true score of a latent dimension to push through:
+
+\begin{equation}
+E(\epsilon) = 0 \Rightarrow \zeta: E(X) = T
+\end{equation}
+
+But the assumption ($E(\epsilon) = 0$) is often unrealistic, there always will be some error of measurement ($\sigma_E$) one can count on and thus has to estimate \parencite{Mair2018}. So let's continue discussing bad defaults and decent alternatives in assessment.
+
+\subsection{Bad defaults}
+
+The aforementioned error of measurement ($\sigma_E$) is of great interest in test theory because it is inversely correlated to the \textsc{reliability} of measure -- its consistency across trials. Thus, reducing the error of measurement yields a better overall estimate of the participant's true score. The most common estimate of scale reliability in applied research is Cronbach's alpha ($\alpha$; \cite{Cronbach1951}). \textsc{Cronbach's alpha} provides an estimate for the lower bound of reliability for a scale evaluating the internal consistency of a set of items \parencite[p. 152]{Bandalos2018}. \textsc{Internally consistent} in CTT implies a set of items sharing strong linear relationships on average. So following the latent variable's logic, the indicators assumably prompt towards a latent dimension and can thus infer its presence.
+
+The actual inference, however, must seem like a stroke of genius. Recall the intricate problem in social science; there is only one set of observable indicators (${X}$) to access the true score ($T$) of the latent dimension ($\zeta$). From this follow, the relation between the true score and the observed indicators is unknown: $T \overset{?}{\sim} X$. Cronbach's alpha bridges the gap relying upon the average inter-item correlation ($\bar{\rho}$) to provide an \textit{estimate} for the reliability of a scale\endnote{Actually, the starting point of the derivation is the measurement standard error. It can be estimated assuming tau-equivalence, as follows: $\sigma_{\epsilon} = \sigma_X \sqrt{1 - \rho^2_{XT}}$. However, the relationship $X \sim T$ is unknown, since $T$ is unknown. As a consequence, one has to bridge the gap with known bits of information. Since only $X$ is known, assuming each item to represent a single test, there are $m$ parallel tests for which $X = \sum_{i=1}^m X_i$. So one can approximate $\sigma_\epsilon$ by $\alpha = k/k-1(1- \sum_{i=1}^k \sigma^2_{X_i} / \sigma^2_{X})$ \parencite{Mair2018}. Note that this derivation shows how reliability is linked to and accessed by the internal consistency of a set of items.}:
+\begin{equation}
+\alpha = \frac{n\bar{\rho}}{1 + \bar{\rho}(n-1)}
+\end{equation}
+So falling back on internal consistency, Cronbach's alpha provides a gateway to scale reliability \parencite[pp. 163]{Bandalos2018}. It is thus often used as an empirical argument to justify a latent dimension.
+
+Nevertheless, in over over four decades, a vast body of evidence has grown in applied research, questioning the use and showing the problems of Cronbach's alpha \parencite{Cole2007, Fleishman1987, Green1977, Green2009, Hayes2020, McNeish2018, Revelle2009, Sijtsma2009, TenBerge2004, Trizano-Hermosilla2016}. \textcite{Sijtsma2009}, for example, takes the view of many of his colleagues, denying Cronbach's alpha to be an appropriate lower bound and disclaims its ability to estimate reliability \parencite[see also][]{Barbaranelli2015, Revelle2009, Sijtsma2009, Sijtsma2015}. \textcite{Cho2015} aptly summarizes the problem with alpha: it is well known but poorly understood. Following \textcite{Trizano-Hermosilla2016}, the era of Cronbach's alpha is finally over. There are more decent alternatives, \textcite{Hayes2020} state, which easily overcome its flaws and provide a more adequate means to evaluate the reliability of a scale. Ultimately, \textcite{McNeish2018} boils down the zeitgeist among experts on using Cronbach's alpha for reliability assessment in one statement: \enquote{Thanks alpha, we'll make it from here}.
+
+\subsection{Decent alternatives}
+
+More decent alternatives to Cronbach's alpha discussed in the literature are the greatest lower bound ($glb$; \cite{Jackson1977}) or coefficient omega ($\omega$; \cite{McDonald1978, McDonald1999}). Both methods have been shown to outperform Cronbach's alpha \parencite{Sijtsma2009, Trizano-Hermosilla2016}. However, following \textcite{Revelle2009} recommendation of the greatest lower bound seems untenable, since coefficient omega has shown to triumph over the greatest lower bound in direct comparison. Consequently, the focus will be devoted to coefficient omega. \textsc{Coefficient omega} is actually a bundle, comprising two components $\omega_t$ \parencite{McDonald1978} and $\omega_h$ \parencite{McDonald1999}. Please note, both estimates actually require prior knowledge on factor analysis, so the explanation falls briefly and may require a reread.
+
+For now, think of a factor ($\xi$) as an empirical argument of an unobserved variable ($\zeta$) including information on multiple observed indicators ($X_{i=1, \dots, m}$). For the sake of reliability analysis, $\omega_h$ is more relevant than $\omega_t$, because it depends on the sum of the squared loadings ($\Lambda\Lambda^t$) of the dominant factor ($\xi$) -- not all factors \parencite{Revelle2021}. So $\omega_h$ focuses on how much of the common variation in the data is actually absorbed by a single factor. This is important because, if a single factor predominates the items, they share high inter-item relationships, which can be attributed to the influence of a single latent dimension. But care must be taken when applying this strategy because, as \textcite{Mair2018} notes, the concept is ultimately too weak to assess unidimensionality since the allocation (i.\,e., general and sub-factors) is neither encompassing nor sufficient.
+
+\subsection{Research recommendations}
+
+Since many studies have proved coefficient omega's superiority over Cronbach's alpha, one should switch to coefficient omega. Although a more recent investigation of \textcite{Hayes2020} could testify its benefits over alpha, the authors note that coefficient omega is not flawless. The finding, however, should not surprise. Even though it is a more precise estimate of reliability, it is still approximate. However, as a generalization of Cronbach's alpha, coefficient omega includes the classical measurement as a special case, which is the reason for its applicability across a wider range of circumstances. For the background of empirical evidence, \textcite{Hayes2020} finally agree with previous investigations of their colleagues and bemoan the absence of coefficient omega in commercial software. So even though coefficient omega is not absolute, it appears to be the better the default.
+
+\subsection{Additionals}
+
+Despite scale reliability, test-theoreticians evaluate the reliability of items themselves \parencite{DeVellis2006}. CTT's strategy is to assess the item's correlation to the total score. The concept is called \textsc{item-to-total correlation} ($\rho_{TX}$) and can be derived following the idea of internal consistent inter-item correlations:
+
+Internally consistent items are on average strongly associated with one another. Thus, if an item fits into the cluster, it its high inter-item correlations (on average). So assessing the indicator itself, one can evaluate how well an item performs on compared to all the other variables on an emerging scale. That is, each item is contrasted with the total (i.\,e., \enquote{item-to-total}). If each item is reasonable to exert same influence (i.\,e., items have equal weight), the total is usually the bundle's sum ($T = \sum X_i$) or its mean ($T = 1/n \sum X_i$). Finally, when calculating the item-to-total correlation, the item is generally excluded from the total score ($T_{X/x_j}$), to improve the estimate. Technically, a part-whole correction is used to eliminate variance inflation in the result \parencite[p. 102]{McIver1981}. This defines the so-called \textsc{corrected item-to-total correlation} ($\rho^{*}_{TX}$) which is predominantly used in applied research to select appropriate items \parencite{Hwang1970}.
+
+\section{Measurement}
+
+There are many ways to develop a unidimensional measurement instrument. The Guttman approach \parencite{Guttman1944}, or Georg Rasch's procedure \parencite{Rasch1960} are just two examples. Besides, Rennis Likert's summated scaling method \parencite{Likert1932} is predominant among classical test theoreticians. Since exploratory Likert scaling (ELS) draws on Likert's approach (and multidimensionality analysis can also be conducted using it\endnote{In next chapter, using a regression framework to estimate factor scores ($\hat{{F}}$) is argued to be superior to pin down a participants value on the latent dimension.}), focus will be devoted to this method in particular.
+
+The Likert-approach makes at least three important assumptions \parencite{McIver1981, VanAlphen1994}: (1) The assumption of equal weights across indicators since all items are viewed as interchangeable units from an infinite population of items -- the "item universe", (2) the assumption of a single latent dimension underlying the response patterns, and (3) that trace-lines are monotonic; so an increase in the underlying latent dimension is assumed to increase a participant's general tendency for item agreement. All assumptions can be examined with the aforementioned methods. A good example of the congruence between the correlation approach of CTT and Likert scaling is the corrected item-to-total correlation. Why? Because any item is evaluated in terms of its compatibility with the total score of the emerging scale. So on the go, items have ever since been chosen to optimize this criterion.
+
+Lastly, a participant's value needs to be assigned to pin down his or her location on the underlying latent dimensions. In particular, the previously developed scale is used in this undertaking. Because the measurement instrument passed for former quality checks (i.\,e., reliability analysis), classical test theoreticians judge the so-developed scale to be sufficient for this purpose. Following the aforementioned development process, lastly a sum or mean score locates participants on the underlying latent dimension.
+
+\section{Large data set challenge}
+
+Unidimensionality analysis is appealing as it contributes to clarity and unequivocalness by fostering understanding. The researcher is capable to evaluate a particular set of items and select among those being reasonable to capture a \textit{single} latent dimension -- assessing their correlation structure. Consequently, unidimensionality analysis is an indispensable tool for theory development \parencite{DeVellis2017, Hattie1985, Klein2014, McIver1981, Shively2017, Zeller2009}.
+
+However, in applied research, the setting is often vastly different. Usually, a large sample from a population of content-related items awaits the researcher, which is not expected to include a single latent dimension. A survey is a good example. A researcher can still try to inspect the correlation matrix going over combinations of items to assess their structure. But with an increasing number, the ordinary approach will soon converge towards its limits. Although improvements in visualization allow adjustments of overall performance, eventually one has to give up on optimization and hand the work over to an algorithmic procedure. This is the \textsc{large data set challenge} the ordinary unidimensional approach is helpless against. Simulated data in  \autoref{fig:LDC} visualize the problem and show the difficulty of detecting corresponding item patterns. There, the limit of visual inspection becomes obvious. 
+
+\begin{figure}[htb]
+\includegraphics[width=\textwidth]{Figures/LDC-1.png}
+\caption[Large-Data-Set Challenge]{Large-Data-Set Challenge — 25 simulated variables and the difficulty of identifying highly correlated item clusters visually}
+\label{fig:LDC}
+\end{figure}
+
+In the following, two algorithms will be presented that take up the large data set challenge. One is a \enquote{dimensional extension} of the unidimensional framework, called \enquote{multiple-unidimensionality}. In research practice, however, its multidimensional competitor, exploratory factor analysis, leads the field.
+
+\subsection{Example code}
+
+The data set used for the following examples are a subset of the Big Five personality traits (in particular:
+extraversion). It comes from the \href{https://openpsychometrics.org/_rawdata/}{openpsychonometrics} website.
+19719 participants answered 10 questions, like \enquote{I am the life of the party} on a five-point Likert scale ([1]: Very Accurate, $\dots$, [5] Very Inaccurate). For the sake of understanding and transparency, some noise ($m=2$) is added using \texttt{fabricatr} \parencite{R-fabricatr}, and the item references (i.\,e., column names) are kept. The starting point is the correlation matrix ($R$), which is made up using the item data set ($X$) and visualized through the eponymous function from the \texttt{corrplot} package \parencite{corrplot2021}. To perform a reliability analysis in CTT, one can use \texttt{alpha()} and \texttt{omega()} from the \texttt{psych} package \parencite{R-psych}. If researcher aims for taking into account the ordinal nature of the data, they can stick with an adapted version of coefficient alpha developed Likert scales \parencite{Zumbo2007}. \texttt{ordinal\_alpha()} is part of the \texttt{jogRu}package \parencite{R-jogRu}.
+
+\subsubsection*{Data preparation}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Load the data
+url <- "https://quantdev.ssri.psu.edu/sites/qdev/files/dataBIG5.csv"
+d <- read.csv(url, header=TRUE)
+# Exclude sociodemographics
+X <- d[, -(1:7)] 
+# 0 is NA
+X[X == 0] <- NA
+# Extract extraversion
+X <- X[, grep("E", colnames(X))]
+\begin{verbnobox}
+
+\subsubsection*{Add noise}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Create two noisy Likert scale variables 
+len <- length(X$E7)
+# Pattern to define a 5-Point Likert scale 
+# Note: Use a normal distribution (UVA)
+breaks <- c(-Inf, -1.5, -0.5, 0.5, 1.5, Inf)
+# Note: noise come from a normal distribution
+set.seed(1234)
+noise_1 <- fabricatr::draw_ordered(x = rnorm(len), breaks = breaks)
+noise_2 <- fabricatr::draw_ordered(x = rnorm(len), breaks = breaks)
+# Assemble the items in a data set 
+items <- data.frame(X, N1 = noise_1, N2 = noise_2)
+\end{verbnobox}
+
+\subsubsection*{Unidimensionality analysis}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Correlation matrix (RA)
+R <- cor(items, use="pairwise.complete.obs")
+# visualization of the correlation matrix
+corrplot::corrplot(R,  method='square', type = 'upper', 
+                   diag = FALSE)
+\end{verbnobox}
+
+\subsubsection*{Reliabilty analysis}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Tag the reversed-scored
+keys <- c(1, -1, 1, -1, 1, -1, 1, -1, 1, -1, -1, 1)
+# reliability analysis 
+uda <- psych::alpha(items, keys = keys)
+# Total statistics 
+uda$total
+# Item statistics
+uda$item.stats
+# Calculate coefficient omega for the item bundle
+psych::omega(items[, -c(11,12)])
+# Propose a item bundle
+extra <- items[, -c(11,12)]
+# Additional: calculate a Cronbach's alpha for Likert scales 
+# Note: Extension of CTT (Underlying Variable Approach) 
+# jogRu::ordinal_alpha(extraversion)
+\end{verbnobox}
+
+\subsubsection*{Measurement}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Sumscore
+sumscore <- rowSums(extra, na.rm = TRUE)
+# Meanscore
+meanscore <- rowMeans(extra, na.rm = TRUE )
+\end{verbnobox}
+
+
+
+

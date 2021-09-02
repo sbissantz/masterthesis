@@ -1,0 +1,213 @@
+% Appendix A
+
+\chapter{Code to Reproduce the Graphics} % Main appendix title
+
+\label{AppendixA} % For referencing this appendix elsewhere, use \ref{AppendixA}
+
+\section*{Graphic 1}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+set.seed(359)
+# Define factor loadings
+loads <- rep(0.7, 12)
+# Population correlation matrix (I)  
+# tau <- psych::sim.congeneric(loads=loads)
+# Sample correlation matrix 
+R <- psych::sim.congeneric(loads=loads,N=50) 
+# Visualize the correlation matrix
+corrplot::corrplot.mixed(R, number.cex=.7)
+\end{verbnobox}
+
+\section*{Graphic 2}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Random number generator
+set.seed(359)
+# Define factor loadings
+loads <- rep(0.6, 12)
+# Population correlation matrix  
+tau <- psych::sim.congeneric(loads=loads) 
+# Sample correlation matrix 
+tau_sample <- psych::sim.congeneric(loads=loads,N=50) 
+# Rounded correlation matrix
+round(tau_sample,2)
+\end{verbnobox}
+
+\section*{Graphic 3}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Random number generator
+set.seed(359)
+# Define factor loadings
+loads <- rep(0.1, 12)
+# Population correlation matrix (I)
+# tau <- psych::sim.congeneric(loads=loads)
+# Sample correlation matrix
+R <- psych::sim.congeneric(loads=loads,N=50)
+# Visualize the correlation matrix
+corrplot::corrplot.mixed(R, number.cex=.7)
+\end{verbnobox}
+
+\section*{Graphic 4}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Random number generator
+set.seed(0405)
+# Determine 0-vector
+zeros <- rep(0,12)
+# Define a measurement model for x
+# Note: values ~ loadings
+fx <-matrix(c(.8, .8, .5, zeros, .7, .8, -.7, zeros,
+              -.5, .7, -.8, zeros, .8, .8, .5), ncol = 4)
+# Define the structure matrix
+# On-diagonals: 1
+phi <- diag(rep(1, 4))
+# Between factor correlations
+phi[1, 2] <- phi[2, 1] <- 0.2 ; phi[1, 3] <- phi[3, 1] <- 0.6
+phi[1, 4] <- phi[4, 1] <- 0.7 ; phi[2, 3] <- phi[3, 2] <- 0.2
+phi[2, 4] <- phi[4, 2] <- 0.6 ; phi[3, 4] <- phi[4, 3] <- 0.4
+# Visualize the measurement model
+# psych::structure.diagram(fx, phi, 
+                  main = “Measurement model for X”)
+# Produce the correlation matrix
+R <- psych::sim.structure(fx, phi)$model
+# Visualize the correlation matrix
+corrplot::corrplot.mixed(R, number.cex=.7)
+\end{verbnobox}
+
+\section*{Graphic 5}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Random number generator
+set.seed(213)
+# Determine 0-vector
+N <- 20
+loadings <- sample(seq(-.8,.8,0.01), N, replace=TRUE)
+# Define a measurement model for x
+# Note: values ~ loadings
+fx <-matrix(loadings, ncol = 2)
+# Define the structure matrix
+# On-diagonals: 1
+phi <- diag(rep(1, 2))
+# Between factor correlations
+phi[1, 2] <- phi[2, 1] <- -0.2
+# Visualize the measurement model
+# psych::structure.diagram(fx, phi,
+                  main = “Measurement model for X”)
+# Produce the correlation matrix
+R <- psych::sim.structure(fx, phi)$model
+# Visualize the correlation matrix
+#corrplot::corrplot.mixed(R, number.cex=.7)
+fa <- psych::fa(R, nfactors = 2)
+plot(NULL, xlab = “honor”,  ylab = “pride”,
+     ylim = c(-1,1), xlim = c(-1,1))
+points(fa$loadings[,1], fa$loadings[,2], pch=20, cex=.7)
+text(fa$loadings[,1], fa$loadings[,2]+.1,
+     paste0(“I”, 2:(N/2)+1), cex = .7)
+l1 <- .5 ; l2 <- .6
+points(l1, l2, pch=20, cex=.7)
+text(l1, l2+.1, “I:(0.5,0.6)”, cex = .6, col="red")
+lines(c(l1,l1), c(0,l2) ,lty=2, lwd=.5)
+lines(c(0,l1), c(l2,l2) ,lty=2, lwd=.5)
+abline(h = 0, v = 0)
+\end{verbnobox}
+
+\section*{Graphic 6}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# psych::structure.diagram(fx, phi, 
+                  main = "Measurement model for X")
+# Produce the correlation matrix
+R <- psych::sim.structure(fx, phi)$model
+# Visualize the correlation matrix
+#corrplot::corrplot.mixed(R, number.cex=.7)
+fa <- psych::fa(R, nfactors = 2)
+plot(NULL, xlab = \u201chonor\u201d,  ylab = "pride",
+     ylim = c(-1,1), xlim = c(-1,1))
+points(fa$loadings[,1], fa$loadings[,2], pch=20, cex=.7)
+text(fa$loadings[,1], fa$loadings[,2]+.1,
+     paste0(\u201cI\u201d, 2:(N/2)+1), cex = .7)
+l1 <- .5 ; l2 <- .6
+points(l1, l2, pch=20, cex=.7)
+text(l1, l2+.1, \u201cI:(0.5,0.6)\u201d, cex = .6, col="red")
+lines(c(l1,l1), c(0,l2) ,lty=2, lwd=.5)
+lines(c(0,l1), c(l2,l2) ,lty=2, lwd=.5)
+abline(h = 0, v = 0)
+\end{verbnobox}
+
+\section*{Graphic 7}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Random number generator
+set.seed(213)
+# Determine number of items
+N <- 20
+loadings <- sample(seq(-.8,.8,0.01), N, replace=TRUE)
+# Define a measurement model for x
+# Note: values ~ loadings
+fx <-matrix(loadings, ncol = 2)
+# Define the structure matrix
+# On-diagonals: 1
+phi <- diag(rep(1, 2))
+# Between factor correlations
+phi[1, 2] <- phi[2, 1] <- 0.6
+# Visualize the measurement model
+# psych::structure.diagram(fx, phi, 
+                  main = “Measurement model for X”)
+# Produce the correlation matrix
+R <- psych::sim.structure(fx, phi)$model
+# Scree plot
+psych::scree(R, factors = FALSE)
+\end{verbnobox}
+
+\section*{Grafik 8}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Random number generator
+set.seed(213)
+# Determine the number of items
+N <- 20
+# Specify the loading pattern
+loadings <- sample(seq(-.8,.8,0.01), N, replace=TRUE)
+# Define a measurement model for x
+# Note: values ~ loadings
+fx <-matrix(loadings, ncol = 2)
+# Define the structure matrix
+# On-diagonals: 1
+phi <- diag(rep(1, 2))
+# Between factor correlations
+phi[1, 2] <- phi[2, 1] <- 0.2
+# Visualize the measurement model
+# psych::structure.diagram(fx, phi, 
+                  main = “Measurement model for X”)
+# Produce the correlation matrix
+X <- psych::sim.structure(fx, phi, n=50)$observed
+# Parallel analysis
+paran::paran(X, quietly = TRUE, graph = TRUE, cfa = FALSE)
+\end{verbnobox}
+
+\section*{Grafik 9}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# Random number generator
+set.seed(213)
+# Determine the number of items
+N <- 20
+# Specify a loading pattern
+loadings <- sample(seq(-.8,.8,0.01), N, replace=TRUE)
+# Define a measurement model for x
+# Note: values ~ loadings
+fx <-matrix(loadings, ncol = 2)
+# Define the structure matrix
+# On-diagonals: 1
+phi <- diag(rep(1, 2))
+# Between factor correlations
+phi[1, 2] <- phi[2, 1] <- 0.6
+# Visualize the measurement model
+# psych::structure.diagram(fx, phi, 
+                  main = “Measurement model for X”)
+# Produce the correlation matrix
+X <- psych::sim.structure(fx, phi, n=100)$observed
+# Scree plot
+EFA.MRFA::hullEFA(X, extr=”ML",display = FALSE, graph = TRUE)
+\end{verbnobox}

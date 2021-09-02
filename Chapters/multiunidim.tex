@@ -1,0 +1,125 @@
+\chapter{Multiple unidimensionality analysis} \label{chap:munidim}
+
+As introduced in the last chapter, if an area of contend-related items is pervaded by more than one latent dimension, one speaks of multidimensionality. Additionally, it was assumed that all underlying (sub-)dimensions act simultaneously to produce a particular outcome. When exploring large data sets, this assumption can be problematic. \textcite[p. 36]{Jacoby1991} states:
+
+\begin{displayquote}
+\enquote{Multidimensional solutions assume that all of the dimensions operate
+simultaneously in contributing to the observed differences between the scaled
+objects [...]. [But] these assumptions can be problematic. Even if a subset a
+of objects possess K ‘objective’ characteristics, there is no particular
+reason that *all* of the characteristics are used to differentiate among all
+of the objects.} 
+\end{displayquote}
+
+Correspondingly, in a large data sets multiple separate dimensions ($\zeta, \eta$) can be at work, where each dimension contributes to a particular subset of the data \parencite[]{VanSchuur1989}. For example:
+\begin{equation}
+\zeta \sim X_{1,\dots,j} \wedge \eta \sim X_{j,\dots,m}  
+\end{equation}
+In this case, one speaks of \textsc{multiple unidimensional representations} \parencite[]{Jacoby1991} of the outcome because each particular subset of the data is associated with a distinct latent variable ($\zeta, \eta$). In other words, there is some kind of cross-influence of separate latent dimensions.
+
+But how does it relate to the previous discussion? Well, FA returns a multidimensional solution \parencite[]{Asun2016, Fischer1974}. Hence, it includes the \textsc{assumption of simultaneous contributions}. The critic from a multiple unidimensional point of view is that the assumption may be untenable. Regarding a multiple unidimensional pattern, there is an alternative explanation for the observed patterns in the correlation matrix, requiring fewer presuppositions. Therefore, the multiple unidimensional approach accuses FA of proving a bad (i.\,e., too pre-suppositional) default to meet the large data set challenge. Logically, one must search alternatives.
+
+\section{Exploratory Likert scaling}
+
+A decent alternative for the complex multidimensional factor analysis from a multiple unidimensional standpoint is \textsc{exploratory Likert scaling} (ELS; \cite{Muller-Schneider2001}). ELS is an implementation of the multiple unidimensional scaling approach, trying to overcome flaws of multidimensional investigations. In order to get potential benefits out of the framework, one needs to better understand the problem of multidimensionality and what tags it a bad default.
+
+\subsection{Bad defaults}
+
+To grasp the problem of multidimensionality and get the benefits of ELS , one needs to understand the appeal to unidimensionality. That is why unidimensionality is so precious for exploratory purposes and its key role in theory development -- conceptual clarity. But unidimensionality is not just valuable for exploration; it is also an inevitable part of measurement \parencite[p. 156]{Hattie1985}. After the value of unidimensionality has become clear, it will be obvious why extending this approach seems to be a handy tool for the large data set challenge.
+
+\subsubsection*{The appeal to unidimensionality}
+
+In exploration and theory development, there seems to be an ongoing appeal to unidimensionality \parencite[]{ DeVellis2017, Klein2014, McIver1981, Shively2017, Zeller2009}. One of the fundamental questions is how this appeal is justified, especially as some authors judge multidimensional techniques to be superior? \parencite[see e.\,g.,][]{Costa2003, Kruskal1978, Stone1999}. The major reason is given in the \textsc{isomorphism argument} \parencite[pp. 12]{McIver1981}:
+
+\begin{displayquote}
+\enquote{The final and most important reason why unidimensional scaling models
+continue to be of substantial interest is that they are isomorphic with the
+primary type of concepts devised by social scientists. Shively (1980), for
+example, has argued that social scientists should strive to develop and use
+unidimensional concepts because they are more susceptible to theory-relevant
+research (also see Clausen and Van horn, 1977). Multidimensional concepts, on
+the other hand, typically hamper such research because they are too ambiguous
+in terms of their meaning, too difficult to measure in a clear and precise
+manner, and too theoretically oriented themselves. Their complexity and
+ambiguity renders them less optimal for the development and assessment of
+social science theories. In other words, using unidimensional scaling models
+to measure unidimensional concepts puts the theory construction and the
+measurement strategy on the same analytical level.}
+\end{displayquote}
+
+\textcite{McIver1981} advocate a \textsc{principle of unequivocalness}. Unidimensional constructs are practically more tangible; in fact, they are easier to understand. This may sound trivial at first, but it is what matters when exploring a series of items -- to gain a true understanding of interrelations. Thus, understanding should be prior whenever exploratory purposes are present. In case no theoretical guidance is provided, unequivocal concepts and unidimensional scales could aid and foster the goal of explicit statements about an OUI. Due to their inherent complexity, multidimensional solutions seem to be a necessary downstream consideration for \textcite{McIver1981} and their colleagues. They would value approaches like exploratory Likert scaling (ELS) and emphasize its use as a decent alternative over more complex multidimensional frameworks like EFA.
+
+\subsection{Decent alternatives}
+
+\textsc{Exploratory Likert scaling} (ELS; \cite{Muller-Schneider2001})\endnote{An upcoming paper of Thomas Müller-Schneider concerning exploratory Likert Scaling is planned at the end of 2021. It will elaborate on this topic in much greater detail.} is a multiple unidimensional scaling approach and operates on a bottom-up item selection process that integrates characteristic values of classical test theory (i.\,e., Cronbach’s alpha and the corrected item-to-total correlation). It is mainly used to discover internally consistent variable clusters; which means item bundles with a low between-group variance and a high within-group variance ($\rho_{x_{i|k},x_{j|k}} \gg \rho_{x_{i|k},x_{j|l}}$).
+
+\subsubsection{Robot’s perspective}
+
+At the heart of ELS is the so-called \textsc{crystallization principle} \parencite[]{Mokken1971}, used to start and expand a scale bottom-up. First, the robot inspects the correlation matrix to find the highest positively correlating pair of items. By \enquote{crystallizing them}, which means to summarize them particularly (i.\,e., using a sum-score or mean-score) the nucleus of the emerging Likert scale is generated. Second, out of the remaining items, the robot picks the one, which correlates highest with the total score. If the item’s ($k$) correlation with the sum score ($\rho_{T, X_{k\setminus\{i,j\}}}$) is larger than a pre-defined lower bound ($\min \rho_{T,X}$), the item is added to the emerging scale. This defines the \textsc{inclusion criterion}:
+
+\begin{equation}
+\min \rho_{T,X} < \rho_{T, X_{k\setminus \{i,j\}}} \Rightarrow k \in T':=\sum_{i=1}^k X_i 
+\end{equation}
+
+Lastly, three, the second step is repeated until the threshold of the lower bound is finally reached ($\min \rho_{T,X}$). If so, the first scale is completed. Looking past the formulas, the algorithm is just the automated version of the unidimensional scale-development process discussed in chapter 1.
+
+However, to meet the large data set challenge, the algorithm needs to be extended, hence become a \textsc{multiple scaling approach} \parencite{Mokken1971}. To adapt to it, the robot simply loops over the previous ones: build the core, extend it, finish the scale; \textit{repeat}. This way, the robot successively construes more and more unidimensional Likert scales. Or, to put it another way, it finally assembles multiple unidimensional ones. Thus, the last step is just the instruction to repeat the process (i.\,e., steps 1 and 2) until either the lower bound is reached or the correlation matrix is fully partitioned into multiple unidimensional Likert scales. Speaking in an analogy, the robot just acts like the pigeons in the Cinderella movie. Compatible ones (i.\,e., items with a high correlation) go into pots (i.\,e., scales) bad ones (i.\,e. items with a low correlation) go into the crop. Repeat. The pigeons (i.\,e., algorithm) stop if they cannot compatible lenses (i.\,e., highly correlating items) because all of them have either been sorted or none of them meets the inclusion criterion.
+
+One may have already guessed the problem with so-constructed scales. Each item is exclusively allocated to a single scale. More precisely, each item occurs in every scale exactly once. But with respect to the blurry boundaries feature, those kinds of scales are problematic. Remember; latent dimensions often share common attributes. ELS’ solution is to let scales overlap. \textsc{Overlap} scaling bases on the principle to \textit{reconsider} the use of every item in the correlation matrix, which is not already part of a disjoint scale. What that means, is the robot (1) takes a disjoint scale fragment, (2) checks which items it already includes, and (3) duplicates the data set - but omits the ones which are already part of the fragment. If the item meets the inclusion criterion, the robot (4) expands the scale. By applying the 4-point strategy to every disjoint scale, items can occur in more than one of them, because the inclusion criterion is often met multiple times.
+
+In summary, the robot starts producing disjoint scales. But since they are incompatible with the OUI, the disjoint scales are viewed only as intermediates or \textsc{scale fragments}. Completing them means expanding each fragment into an overlap. By reconsidering the use of every item, ELS completes not only a scale but furthermore aligns the result with the OUI’s tendency towards blurry boundaries. The remaining question for the upcoming sections is how to set the above threshold ($\min \rho_{T,X}$).
+
+\subsubsection{Researcher’s perspective}
+
+From the researcher’s perspective, using ELS as the implementation of a multiple-unidimensional approach requires choosing two lower bounds. The first one is used to produce disjoint scale fragments ($\min \rho^{disj.}_{T,X}$). The second one is needed for the overlap ($\min \rho^{ovlp.}_{T,X}$). To foster the identification of homogeneous item clusters, there is a strategy on how to set these values. The first couple of runs are used to find the disjoint kernels with the highest internal consistency. The lower bound ($\min \rho^{disj.}_{T,X}$) is increased successively until a sufficient maximum is reached. The subsequent runs with the second lower bound ($\min \rho^{ovlp.}_{T,X}$) complement the maximal consistent item fragment, hence, it is an expansion process. Researchers should set the second boundary to the minimum threshold they are willing to tolerate for inclusion.
+
+\subsection{Research recommendations}
+
+So far, exploratory Likert scaling is neither widely recognized in the research community nor widely used. Thus, it is hard to give research recommendations based on solid empirical evidence or simulation studies. But the author gained some insights into ELS, implementing the according R package \texttt{elisr} \parencite{R-elisr} with the author of ELS. Thus, some restricted practical advice on how to set the lower bounds can be given. In practice, it has proven to be effective to raise the first lower bound ($\min\rho^{disj.}_{X,T}$) until the maximal number of scale fragments result. But determining the second lower bound ($\min \rho^{ovlp.}_{X,T}$) is much more difficult. Researchers should set the second boundary to the minimum threshold they are willing to tolerate for inclusion and report those values. Why? Because the values for those thresholds depend upon the particular context and setting. Up to now, there is only one clear guideline for the use of ELS. The second boundary is typically much lower than the first one:
+
+\begin{equation}
+\min \rho^{disj.}_{T,X} \gg \min \rho^{ovlp.}_{T,X}
+\end{equation}
+
+In addition, it should be noted that using existing ELS variants might be only of limited applicability since they fully rely on CTT. From the perspective of \textcite[p. 32]{Borsboom2005} the classical true score approach \enquote{[$\dots$] is like an alien in a B-Movie: no matter how hard you beat it up, it keeps coming back}. \textcite{Kohli2015} probably share \textcite{Borsboom2005}’s aversion, showing that only modern extensions of CTT -- subsumed under the \textsc{underlying variable approach} (UVA) (i.\,e., assuming underlying normally distributed variables) -- perform well enough to compete against modern item response theory models. So at this point ELS (as well as `elisr`) is out-to-date. However, upcoming versions will expand the classical approach and include contemporary alternatives such as polychoric correlations and adapted versions of Cronbach’s alpha tailored for Likert scales \textcite{Zumbo2007}.
+
+\section{Measurement}
+
+Measurement in ELS is conducted using the sum-score. This makes sense as scales are built by maximizing the item-to-total correlation, hence optimizing ELS’ scaling criterion. But note that measurement and item selection in ELS are intertwined; they go hand in hand. Scales are finished on the run, so to speak. The items are detected, analyzed, and merged in one go. ELS is thus a comprehensive framework combining detection, item selection, and scale measurement in one application. If the researcher aims to, first, fully automate unidimensionality scale assessment to meet the large data set challenge and is, second, willing to trust in CTT as well as summated rating scales, ELS is the way to go.
+
+\section{Example Code}
+
+Once more, data comprises participant’s responses to a questionnaire on the Big Five personality traits and come from the \href{https://openpsychometrics.org/_rawdata/}{openpsychonometrics} website.  19719 participants answered 50 questions, like \enquote{I am the life of the party} on a five-point Likert scale ([1]: Very Accurate, $\dots$, [5] Very Inaccurate). To analyze the data \texttt{disjoint()} and \texttt{overlap()} from the R package \texttt{elisr} \parencite{R-elisr} were used.
+
+\subsection*{Data preparation}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+# URL
+url <- “https://quantdev.ssri.psu.edu/sites/qdev/files/dataBIG5.csv”
+d <- read.csv(url, header = TRUE)
+# Exclude: sociodemographics
+X <- d[, -(1:7)] 
+# 0 is NA
+X[X==0] <- NA
+# Build disjoint scale fragments: ITT_c=.55
+# NA: Pairwise.complete.obs
+\end{verbnobox}
+
+\subsection*{Multiple unidimensionality analysis}
+
+\begin{verbnobox}[\tiny\arabic{VerbboxLineNo}\small\hspace{3ex}]
+msdf <- elisr::disjoint(X, mrit_min = .6)
+# Complete the scale
+# NA: Pairwise.complete.obs
+elisr::overlap(msdf, mrit_min = .5)
+\end{verbnobox}
+
+
+
+
+
+
+
+
+
+
